@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo IoT – Sensores Industriais | SENAI</title>
+<script src="./script.js"defer></script>
+<meta name="description" content="Catálogo técnico digital de sensores IoT e industriais para uso com Arduino, ESP32, Raspberry Pi e CLPs.">
+<link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-container">
+    <div class="brand">Catálogo <span>IoT</span> – Sensores Industriais</div>
+    <div class="nav-links">
+      <a class="nav-link active" href="#inicio">Início</a>
+      <a class="nav-link" href="#arduino">Arduino</a>
+      <a class="nav-link" href="#sensores">Sensores</a>
+      <a class="nav-link" href="#programacao">Programação</a>
+      <a class="nav-link" href="#sobre">Sobre</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="inicio">
+  <div class="hero-content">
+    <h1>Sensores IoT e Industriais</h1>
+    <h2>Catálogo técnico digital para projetos com Arduino, ESP32, Raspberry Pi e CLPs</h2>
+    <span class="tag">Indústria 4.0 · Automação · Internet das Coisas</span>
+  </div>
+</header>
+
+<!-- ================= INÍCIO – conceitos ================= -->
+<section class="page">
+  <h2 class="section-title">O que é Sensoriamento?</h2>
+  <p class="lead">Sensoriamento é o processo de captar grandezas físicas ou químicas do ambiente (temperatura, luz, pressão, presença de gás, etc.) e converter em sinais elétricos que podem ser lidos e processados por dispositivos eletrônicos.</p>
+
+  <div class="two-col">
+    <div class="arduino-card">
+      <h3>Importância na Automação Industrial</h3>
+      <p>Sem sensores não existe automação. Eles são os "olhos e ouvidos" das máquinas, permitindo que sistemas tomem decisões em tempo real: parar uma esteira ao detectar peça fora do lugar, ajustar temperatura de um forno, alertar sobre vazamento de gás, entre outras aplicações.</p>
+    </div>
+    <div class="arduino-card">
+      <h3>Sensores + Comunicação + Controle</h3>
+      <p>O sensor coleta o dado, a rede de comunicação (I2C, SPI, MQTT, Modbus, LoRa) transporta a informação e o controlador (Arduino, ESP32, CLP, nuvem) toma a decisão. Esse ciclo é o coração da <b>Internet das Coisas (IoT)</b> e da <b>Indústria 4.0</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARDUINO ================= -->
+<section class="page" id="arduino">
+  <h2 class="section-title">Arduino – Conceito, funcionamento e programação</h2>
+  <div class="two-col">
+    <div class="arduino-card">
+      <h3>O que é o Arduino?</h3>
+      <p>O Arduino é uma plataforma de prototipagem eletrônica open-source composta por uma placa microcontrolada (baseada em ATmega328 no UNO) e um ambiente de desenvolvimento (IDE) baseado em C/C++. Permite ler entradas – luz em um sensor, um dedo em um botão, uma mensagem de rede – e transformar em saídas – acionar um motor, ligar um LED, publicar dados online.</p>
+    </div>
+    <div class="arduino-card">
+      <h3>Características principais</h3>
+      <ul>
+        <li>Microcontrolador ATmega328P (Arduino UNO)</li>
+        <li>Alimentação 7–12 V (jack) ou 5 V (USB)</li>
+        <li>14 pinos digitais (6 com PWM) e 6 analógicos (10 bits)</li>
+        <li>Comunicação: UART, I2C (A4/A5) e SPI (D10–D13)</li>
+        <li>IDE multiplataforma com centenas de bibliotecas prontas</li>
+      </ul>
+    </div>
+  </div>
+  <div class="arduino-card" style="margin-top:20px">
+    <h3>Funcionamento básico de um programa (sketch)</h3>
+<pre style="background:#1e2a30;color:#d8e4e0;padding:16px;border-radius:10px;overflow-x:auto"><code>void setup() {
+  // Executado uma vez ao ligar/resetar
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  // Executado repetidamente
+  digitalWrite(13, HIGH); delay(500);
+  digitalWrite(13, LOW);  delay(500);
+}</code></pre>
+  </div>
+</section>
+
+<!-- ================= SENSORES ================= -->
+<section class="page" id="sensores">
+  <h2 class="section-title">Cadastro dos Sensores</h2>
+  <p class="lead">Explore os 25 sensores mais utilizados em projetos IoT e industriais. Use os filtros abaixo para buscar por nome ou categoria.</p>
+
+  <div class="filters">
+    <input type="text" id="q" placeholder="🔎 Buscar sensor (ex: temperatura, DHT, gás...)">
+    <select id="cat">
+      <option value="">Todas as categorias</option>
+      <option value="Chama">Chama</option><option value="Chuva">Chuva</option><option value="Corrente">Corrente</option><option value="Distância">Distância</option><option value="Encoder">Encoder</option><option value="Fluxo">Fluxo</option><option value="Gás">Gás</option><option value="Luminosidade">Luminosidade</option><option value="Movimento">Movimento</option><option value="Nível">Nível</option><option value="Peso">Peso</option><option value="Proximidade">Proximidade</option><option value="RFID">RFID</option><option value="Rotação">Rotação</option><option value="Som">Som</option><option value="Temperatura">Temperatura</option><option value="Temperatura e Umidade">Temperatura e Umidade</option><option value="Tensão">Tensão</option><option value="Umidade">Umidade</option><option value="Vibração">Vibração</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid">
+    
+    <article class="sensor-card" data-cat="Temperatura e Umidade" data-search="dht11 temperatura e umidade monitoramento de temperatura e umidade">
+      <div class="card-img"><img src="images/dht11.jpg" alt="Sensor DHT11" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Temperatura e Umidade</span>
+        <h3>DHT11</h3>
+        <p class="app">Monitoramento de temperatura e umidade</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor digital de baixo custo que mede temperatura e umidade relativa do ar em um único módulo.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Utiliza um termistor NTC para temperatura e um sensor capacitivo de polímero para umidade. Um microcontrolador interno converte os valores e envia via protocolo digital de fio único.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5V; Temp: 0–50°C (±2°C); Umidade: 20–90% (±5%); Taxa: 1 Hz.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (1-Wire proprietário)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Estações meteorológicas, estufas, controle de HVAC residencial, monitoramento de datacenters simples.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Ligado a um Arduino UNO no pino D2 com biblioteca DHT.h para exibir temperatura e umidade em um display LCD I2C.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Aosong, ELEGOO, Robocore, HiLetgo</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Temperatura e Umidade" data-search="dht22 (am2302) temperatura e umidade maior precisão que o dht11">
+      <div class="card-img"><img src="images/dht22.jpg" alt="Sensor DHT22 (AM2302)" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Temperatura e Umidade</span>
+        <h3>DHT22 (AM2302)</h3>
+        <p class="app">Maior precisão que o DHT11</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Versão aprimorada do DHT11, com maior faixa de medição e melhor precisão.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Mesmo princípio (termistor + capacitivo) porém com calibração de fábrica armazenada em memória interna.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–6V; Temp: -40 a 80°C (±0.5°C); Umidade: 0–100% (±2%); Taxa: 0.5 Hz.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (1-Wire proprietário)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Monitoramento agrícola, indústria alimentícia, climatização precisa, IoT ambiental.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Conectado a um ESP32 enviando dados de temperatura/umidade a cada 30s para um dashboard MQTT/Node-RED.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Aosong AM2302, Adafruit, DFRobot</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Temperatura" data-search="lm35 temperatura medição analógica de temperatura">
+      <div class="card-img"><img src="images/lm35.jpg" alt="Sensor LM35" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Temperatura</span>
+        <h3>LM35</h3>
+        <p class="app">Medição analógica de temperatura</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor analógico linear de temperatura que fornece 10 mV por °C.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Utiliza a variação da tensão base-emissor de um par de transistores em função da temperatura para gerar uma saída proporcional em milivolts.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 4–30V; Faixa -55 a 150°C; Precisão ±0.5°C; Saída 10 mV/°C.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico (tensão)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Termômetros digitais, controle de temperatura em processos, monitoramento de motores.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Ligado ao pino A0 do Arduino, valor lido por analogRead() e convertido em °C: temp = (leitura*5.0/1023)*100.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Texas Instruments, ON Semiconductor</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Temperatura" data-search="ds18b20 temperatura monitoramento de líquidos e ambientes">
+      <div class="card-img"><img src="images/ds18b20.jpg" alt="Sensor DS18B20" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Temperatura</span>
+        <h3>DS18B20</h3>
+        <p class="app">Monitoramento de líquidos e ambientes</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor digital de temperatura à prova d'água, usa protocolo OneWire.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Cada sensor possui um endereço único de 64 bits; converte temperatura em valor digital via ADC interno e transmite pelo barramento 1-Wire.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.0–5.5V; Faixa -55 a 125°C; Precisão ±0.5°C; Resolução 9–12 bits.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (1-Wire / OneWire)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Aquários, caldeiras, cervejarias artesanais, monitoramento de estufas, câmaras frias.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Vários sensores no mesmo pino do Arduino usando OneWire.h + DallasTemperature.h para monitorar caldeira e retorno.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Maxim/Analog Devices, Robocore</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Luminosidade" data-search="ldr luminosidade controle automático de iluminação">
+      <div class="card-img"><img src="images/ldr.jpg" alt="Sensor LDR" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Luminosidade</span>
+        <h3>LDR</h3>
+        <p class="app">Controle automático de iluminação</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Resistor dependente da luz (Light Dependent Resistor); sua resistência diminui quando a incidência luminosa aumenta.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Composto de sulfeto de cádmio (CdS); a energia luminosa libera portadores de carga, reduzindo a resistência elétrica do material.</dd>
+            <dt>Especificações técnicas</dt><dd>Resistência ~1MΩ no escuro e ~1kΩ na luz; Alimentação livre (com divisor de tensão).</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico (via divisor de tensão)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Postes com acendimento automático, sensores de presença de luz, contagem de rotação.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Divisor de tensão LDR+10kΩ ligado em A0 do Arduino; acende LED quando a leitura for menor que 300.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>GL55xx, Vishay, genéricos</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Luminosidade" data-search="bh1750 luminosidade medição digital da intensidade luminosa">
+      <div class="card-img"><img src="images/bh1750.jpg" alt="Sensor BH1750" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Luminosidade</span>
+        <h3>BH1750</h3>
+        <p class="app">Medição digital da intensidade luminosa</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor digital de luminosidade que fornece leitura direta em lux.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Fotodiodo com resposta próxima ao olho humano; ADC de 16 bits converte o sinal e disponibiliza o valor via I2C.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 2.4–3.6V; Faixa 1–65535 lux; Resolução 1 lux; Endereços I2C 0x23/0x5C.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital I2C</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Automação de iluminação em prédios inteligentes, agricultura de precisão, câmeras.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>ESP32 lendo lux via BH1750.h e ajustando via PWM a intensidade de uma fita LED.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Rohm Semiconductor, GY-30, GY-302</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Distância" data-search="hc-sr04 distância medição de distância e detecção de obstáculos">
+      <div class="card-img"><img src="images/hcsr04.jpg" alt="Sensor HC-SR04" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Distância</span>
+        <h3>HC-SR04</h3>
+        <p class="app">Medição de distância e detecção de obstáculos</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor ultrassônico que mede distância a objetos usando ondas sonoras de 40 kHz.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Emite pulso ultrassônico pelo TRIG; ao receber o eco no ECHO, calcula o tempo de ida e volta. Distância = (tempo * velocidade do som)/2.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5V; Faixa 2–400 cm; Precisão ±3 mm; Ângulo ~15°.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (pulso TRIG/ECHO)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Robôs móveis, estacionamento veicular, medição de nível em silos, portas automáticas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Robô Arduino que gira 90° quando lê distância menor que 20 cm à frente.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Elecfreaks, HC-SR04, HY-SRF05</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Movimento" data-search="pir hc-sr501 movimento detecção de presença">
+      <div class="card-img"><img src="images/pir.jpg" alt="Sensor PIR HC-SR501" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Movimento</span>
+        <h3>PIR HC-SR501</h3>
+        <p class="app">Detecção de presença</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor infravermelho passivo (Passive InfraRed) que detecta variações de calor causadas por movimento humano/animal.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Dois elementos piroelétricos detectam radiação IR emitida por corpos; quando um corpo se move, gera diferencial de tensão interpretado como movimento.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5–12V; Alcance 3–7 m; Ângulo 120°; Delay/sensibilidade ajustáveis por trimpot.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (nível alto ao detectar)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Alarmes residenciais, acendimento automático de luz, contagem de pessoas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Ligado a ESP8266 para acender lâmpada Wi-Fi via relé e enviar notificação Telegram ao detectar presença.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>HC-SR501, HC-SR505, AM312</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Proximidade" data-search="sensor indutivo lj12a3 proximidade detecção de objetos metálicos">
+      <div class="card-img"><img src="images/indutivo.jpg" alt="Sensor Sensor Indutivo LJ12A3" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Proximidade</span>
+        <h3>Sensor Indutivo LJ12A3</h3>
+        <p class="app">Detecção de objetos metálicos</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de proximidade sem contato que detecta apenas materiais metálicos.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Uma bobina gera campo eletromagnético; ao aproximar um metal, correntes de Foucault alteram a impedância da bobina, ativando a saída.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 6–36V; Distância 4 mm; Corrente 300 mA; Saída NPN ou PNP (NA/NF).</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (NPN/PNP, 24V industrial)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Contagem de peças em esteiras, fim de curso em máquinas CNC, controle de posição em CLPs.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Ligado a uma entrada digital de CLP Siemens para contar latas metálicas em uma linha de produção.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Autonics, Omron, Sick, Metaltex</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Proximidade" data-search="sensor capacitivo lj18a3 proximidade detecção de sólidos e líquidos">
+      <div class="card-img"><img src="images/capacitivo.jpg" alt="Sensor Sensor Capacitivo LJ18A3" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Proximidade</span>
+        <h3>Sensor Capacitivo LJ18A3</h3>
+        <p class="app">Detecção de sólidos e líquidos</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de proximidade capaz de detectar qualquer material (metal, plástico, líquido, vidro).</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um capacitor forma-se entre a face do sensor e o alvo; a presença de material altera a capacitância, ativando a saída.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 6–36V; Distância 1–25 mm; Saída NPN/PNP; NA/NF.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (NPN/PNP, 24V industrial)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Detecção de nível de grãos, líquidos em tanques, presença de embalagens.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Instalado no exterior de um tanque plástico para acionar bomba quando o nível cai.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Autonics, Omron, Sick</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Gás" data-search="mq-2 gás detecção de fumaça e gases combustíveis">
+      <div class="card-img"><img src="images/mq2.jpg" alt="Sensor MQ-2" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Gás</span>
+        <h3>MQ-2</h3>
+        <p class="app">Detecção de fumaça e gases combustíveis</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de gás semicondutor sensível a GLP, butano, metano, álcool, hidrogênio e fumaça.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um filme de SnO2 aquecido varia sua resistência conforme moléculas de gás são adsorvidas em sua superfície.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5V; Faixa 300–10000 ppm; Aquecedor ~150 mA; Saídas analógica e digital.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico e Digital</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Alarmes de incêndio, detectores de vazamento de GLP em cozinhas industriais.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>ESP32 lendo A0; se leitura &gt; limite, aciona buzzer e envia alerta para app Blynk.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Hanwei Electronics, Winsen</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Gás" data-search="mq-135 gás monitoramento da qualidade do ar">
+      <div class="card-img"><img src="images/mq135.jpg" alt="Sensor MQ-135" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Gás</span>
+        <h3>MQ-135</h3>
+        <p class="app">Monitoramento da qualidade do ar</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor sensível a NH3, NOx, álcool, benzeno, fumaça e CO2, útil para IAQ (Indoor Air Quality).</dd>
+            <dt>Princípio de funcionamento</dt><dd>Mesmo princípio semicondutor (SnO2) do MQ-2, calibrado para outros compostos.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5V; Faixa 10–1000 ppm; Aquecedor &lt;800 mW.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico e Digital</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Purificadores de ar inteligentes, monitoramento urbano, estações IoT ambientais.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Raspberry Pi + ADC MCP3008 lendo MQ-135 e postando índice de qualidade do ar via HTTP.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Hanwei, Winsen</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Umidade" data-search="sensor capacitivo de umidade do solo umidade agricultura inteligente">
+      <div class="card-img"><img src="images/umidade_solo.jpg" alt="Sensor Sensor Capacitivo de Umidade do Solo" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Umidade</span>
+        <h3>Sensor Capacitivo de Umidade do Solo</h3>
+        <p class="app">Agricultura inteligente</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor que mede a umidade do solo por capacitância, sem contato metálico direto com a terra.</dd>
+            <dt>Princípio de funcionamento</dt><dd>A umidade do solo altera a constante dielétrica entre placas do sensor, mudando a frequência de um oscilador; convertida em tensão analógica.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5.5V; Saída 0–3V; Resistente a corrosão.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Irrigação automática de vasos e hortas, agricultura de precisão, estufas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>ESP32 lê o sensor a cada 10 min e liga relé da bomba d'água quando abaixo de 30%.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>DFRobot Gravity, genéricos v1.2/v2.0</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Chuva" data-search="sensor fc-37 chuva detecção de chuva">
+      <div class="card-img"><img src="images/chuva.jpg" alt="Sensor Sensor FC-37" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Chuva</span>
+        <h3>Sensor FC-37</h3>
+        <p class="app">Detecção de chuva</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Módulo que detecta a presença de gotas de água em sua placa condutora.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Duas trilhas condutoras em paralelo formam um circuito aberto; ao serem molhadas, sua resistência cai e é lida pelo comparador LM393.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5V; Saídas analógica (A0) e digital (D0) com limite ajustável.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico e Digital</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Fechamento automático de janelas/toldos, alarme de chuva em estufas, estações climáticas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino detecta chuva e aciona servo motor para fechar cobertura do varal.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>FC-37, YL-83</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Nível" data-search="sensor de nível (boia) nível controle de nível em reservatórios">
+      <div class="card-img"><img src="images/boia.jpg" alt="Sensor Sensor de Nível (Boia)" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Nível</span>
+        <h3>Sensor de Nível (Boia)</h3>
+        <p class="app">Controle de nível em reservatórios</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Interruptor magnético acionado pela flutuação de uma boia sobre o líquido.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um reed switch dentro do corpo é ativado por um ímã embutido na boia quando esta atinge determinado nível.</dd>
+            <dt>Especificações técnicas</dt><dd>Tensão até 100 V; Corrente até 0.5 A; Materiais em PP ou inox.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (contato seco NA/NF)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Caixas d'água, cisternas, bombas de esgoto, indústrias químicas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>CLP recebendo contato da boia para ligar bomba de recalque automaticamente.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Icos, Margirius, Genebre</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Fluxo" data-search="yf-s201 fluxo medição de vazão de água">
+      <div class="card-img"><img src="images/yfs201.jpg" alt="Sensor YF-S201" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Fluxo</span>
+        <h3>YF-S201</h3>
+        <p class="app">Medição de vazão de água</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de vazão que mede quantos litros passam por uma tubulação.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Uma turbina interna gira conforme o fluxo; um sensor Hall converte a rotação em pulsos de frequência proporcional à vazão.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5–24V; Faixa 1–30 L/min; Pressão máx. 1.75 MPa; Rosca 1/2".</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (pulso de frequência)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Hidrômetros, controle de consumo em prédios, dosagem em cervejarias.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino conta pulsos via interrupção e calcula L/min; envia via LoRa para gateway.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>YF-S201, Digiten</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Corrente" data-search="acs712 corrente medição de corrente elétrica">
+      <div class="card-img"><img src="images/acs712.jpg" alt="Sensor ACS712" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Corrente</span>
+        <h3>ACS712</h3>
+        <p class="app">Medição de corrente elétrica</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de corrente CA/CC baseado em efeito Hall, com isolação galvânica.</dd>
+            <dt>Princípio de funcionamento</dt><dd>O condutor passa por um caminho interno; o campo magnético gerado é convertido em tensão proporcional à corrente por um elemento Hall.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5V; Faixas 5A/20A/30A; Sensibilidade 185/100/66 mV/A.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Medidores de consumo, proteção contra sobrecorrente, monitoramento de motores.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino calcula RMS de corrente CA e mostra kWh consumido em display OLED.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Allegro Microsystems</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Tensão" data-search="zmpt101b tensão medição de tensão ca">
+      <div class="card-img"><img src="images/zmpt101b.jpg" alt="Sensor ZMPT101B" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Tensão</span>
+        <h3>ZMPT101B</h3>
+        <p class="app">Medição de tensão CA</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Transformador de precisão para medir tensão alternada da rede elétrica com segurança.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um transformador de tensão reduz 220/110V para valores lidos por microcontrolador; um op-amp ajusta o ganho.</dd>
+            <dt>Especificações técnicas</dt><dd>Faixa 0–250 VCA; Saída ajustável 0–3.3V/5V; Precisão ~1%.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Wattímetros, monitoramento de qualidade de energia, medidores inteligentes.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>ESP32 mede Vrms + corrente do ACS712 e calcula potência ativa/reativa e fator de potência.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Qingxian Zeming Langxi Electronic</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Vibração" data-search="sw-420 vibração detecção de vibrações">
+      <div class="card-img"><img src="images/sw420.jpg" alt="Sensor SW-420" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Vibração</span>
+        <h3>SW-420</h3>
+        <p class="app">Detecção de vibrações</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Módulo de detecção de vibração/choque com saída digital.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um cilindro com esfera metálica interna fecha um contato quando vibrado; comparador LM393 gera saída digital com sensibilidade ajustável.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5V; Sensibilidade via trimpot; Saídas D0 e A0.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (com trimpot) e Analógico</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Alarmes antifurto, monitoramento predictivo de motores, detecção de queda.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>ESP8266 detecta vibração em portão e envia notificação MQTT para Home Assistant.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Genéricos SW-420, SW-18010P</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Rotação" data-search="sensor hall a3144 rotação medição de velocidade de motores">
+      <div class="card-img"><img src="images/hall.jpg" alt="Sensor Sensor Hall A3144" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Rotação</span>
+        <h3>Sensor Hall A3144</h3>
+        <p class="app">Medição de velocidade de motores</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor de efeito Hall que detecta a proximidade de um campo magnético.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Uma corrente atravessando um semicondutor sujeito a campo magnético gera diferença de potencial perpendicular (efeito Hall), amplificada em saída digital.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 4.5–24V; Saída Open Collector; Corrente 25 mA.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (Open Collector)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Tacômetros, ventiladores PC, sensores de posição em motores BLDC.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino conta pulsos do A3144 acionado por ímã na roda para calcular RPM de um motor.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Allegro, Honeywell, Melexis</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="RFID" data-search="mfrc522 rfid controle de acesso e identificação">
+      <div class="card-img"><img src="images/mfrc522.jpg" alt="Sensor MFRC522" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">RFID</span>
+        <h3>MFRC522</h3>
+        <p class="app">Controle de acesso e identificação</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Módulo leitor/gravador RFID de 13.56 MHz compatível com padrão MIFARE.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Antena gera campo eletromagnético de 13.56 MHz que alimenta o cartão passivo; comunicação por modulação de carga entre cartão e módulo, usando SPI para o microcontrolador.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3V; Frequência 13.56 MHz; Distância até 5 cm; SPI/I2C/UART.</dd>
+            <dt>Tipo de sinal</dt><dd>SPI (padrão) / I2C / UART</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Catracas, controle de ponto, chaves eletrônicas em condomínios, rastreio industrial.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino com MFRC522.h destranca fechadura elétrica ao ler UID cadastrado.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>NXP Semiconductors</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Peso" data-search="célula de carga + hx711 peso balanças e sistemas de pesagem">
+      <div class="card-img"><img src="images/hx711.jpg" alt="Sensor Célula de Carga + HX711" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Peso</span>
+        <h3>Célula de Carga + HX711</h3>
+        <p class="app">Balanças e sistemas de pesagem</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Combinação de uma célula de carga (strain gauge) com o amplificador/ADC HX711 de 24 bits.</dd>
+            <dt>Princípio de funcionamento</dt><dd>O peso deforma o extensômetro alterando sua resistência; a ponte de Wheatstone gera pequena tensão diferencial amplificada e digitalizada pelo HX711.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 2.7–5V; ADC 24 bits; Taxa 10/80 Hz; Células comuns 1, 5, 10, 20 kg.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (protocolo serial próprio)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Balanças comerciais, silos de ração, dosadores, prensas.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino com HX711.h e célula de 5 kg exibe peso em display LCD para uma balança de cozinha.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Avia Semiconductor, SparkFun</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Som" data-search="ky-037 som detecção de nível de ruído">
+      <div class="card-img"><img src="images/ky037.jpg" alt="Sensor KY-037" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Som</span>
+        <h3>KY-037</h3>
+        <p class="app">Detecção de nível de ruído</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Módulo com microfone de eletreto de alta sensibilidade e comparador para detecção de som.</dd>
+            <dt>Princípio de funcionamento</dt><dd>O microfone converte pressão sonora em sinal elétrico; o amplificador aumenta a amplitude e o comparador aciona a saída digital.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5V; Saída analógica e digital; Sensibilidade ajustável.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico e Digital</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Palmas para ligar luz, detecção de estouro de vidros, monitoramento acústico.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino acende LED quando um som forte é detectado, usando saída digital do módulo.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Keyes, genéricos KY-037/KY-038</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Chama" data-search="sensor de chama ir chama detecção de fogo">
+      <div class="card-img"><img src="images/chama.jpg" alt="Sensor Sensor de Chama IR" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Chama</span>
+        <h3>Sensor de Chama IR</h3>
+        <p class="app">Detecção de fogo</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Sensor sensível a radiação infravermelha emitida por chamas na faixa de 760–1100 nm.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Um fotodiodo IR responde à radiação da chama e o LM393 fornece saída digital comparada a um limiar.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 3.3–5V; Ângulo ~60°; Distância até 100 cm.</dd>
+            <dt>Tipo de sinal</dt><dd>Analógico e Digital</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Robôs bombeiros, alarmes de incêndio, sistemas de segurança em caldeiras.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Robô Arduino direcionado pelo sensor de chama que aciona ventoinha para apagar vela.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Keyes, genéricos</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+    <article class="sensor-card" data-cat="Encoder" data-search="encoder incremental ky-040 encoder controle de posição e rotação">
+      <div class="card-img"><img src="images/ky040.jpg" alt="Sensor Encoder Incremental KY-040" loading="lazy"></div>
+      <div class="card-body">
+        <span class="badge">Encoder</span>
+        <h3>Encoder Incremental KY-040</h3>
+        <p class="app">Controle de posição e rotação</p>
+        <button class="btn-detail" aria-expanded="false">Ver detalhes ▾</button>
+        <div class="details" hidden>
+          <dl>
+            <dt>Conceito</dt><dd>Encoder rotativo incremental com botão de pressão, usado para entrada de usuário e leitura de posição.</dd>
+            <dt>Princípio de funcionamento</dt><dd>Dois canais (A e B) defasados 90° geram pulsos ao girar; a ordem determina a direção e a quantidade determina o deslocamento.</dd>
+            <dt>Especificações técnicas</dt><dd>Alimentação 5V; 20 pulsos/volta; Chave push-button integrada.</dd>
+            <dt>Tipo de sinal</dt><dd>Digital (quadratura)</dd>
+            <dt>Aplicações industriais / IoT</dt><dd>Menus em displays, controle de volume, ajuste de setpoint em CLPs.</dd>
+            <dt>Exemplo de uso em projeto</dt><dd>Arduino ajusta setpoint de temperatura em display OLED com giro e confirma com o clique do encoder.</dd>
+            <dt>Fabricantes / modelos comerciais</dt><dd>Keyes, Bourns, ALPS</dd>
+          </dl>
+        </div>
+      </div>
+    </article>
+  </div>
+  <p id="empty" style="display:none;text-align:center;margin-top:30px;color:var(--ink-2)">Nenhum sensor encontrado com esse filtro.</p>
+</section>
+
+<!-- ================= PROGRAMAÇÃO ================= -->
+<section class="page" id="programacao">
+  <h2 class="section-title">Exemplos de Programação com Arduino</h2>
+  <p class="lead">Códigos comentados para 10 dos sensores do catálogo. Clique em cada item para expandir.</p>
+  
+    <details class="prog-item" open>
+      <summary>DHT11 – Temperatura e Umidade</summary>
+      <pre><code>#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+void loop() {
+  float t = dht.readTemperature();
+  float h = dht.readHumidity();
+  Serial.print("Temp: "); Serial.print(t);
+  Serial.print(" C | Umid: "); Serial.println(h);
+  delay(2000);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>LM35 – Temperatura analógica</summary>
+      <pre><code>void setup() { Serial.begin(9600); }
+void loop() {
+  int leitura = analogRead(A0);
+  float tempC = (leitura * 5.0 / 1023.0) * 100.0;
+  Serial.print("Temperatura: ");
+  Serial.print(tempC); Serial.println(" C");
+  delay(1000);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>HC-SR04 – Distância ultrassônica</summary>
+      <pre><code>#define TRIG 9
+#define ECHO 10
+void setup() {
+  pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  digitalWrite(TRIG, LOW); delayMicroseconds(2);
+  digitalWrite(TRIG, HIGH); delayMicroseconds(10);
+  digitalWrite(TRIG, LOW);
+  long dur = pulseIn(ECHO, HIGH);
+  float cm = dur * 0.0343 / 2;
+  Serial.print("Dist: "); Serial.println(cm);
+  delay(300);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>PIR HC-SR501 – Detecção de presença</summary>
+      <pre><code>#define PIR 2
+#define LED 13
+void setup() {
+  pinMode(PIR, INPUT); pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  if (digitalRead(PIR) == HIGH) {
+    digitalWrite(LED, HIGH);
+    Serial.println("Movimento detectado!");
+  } else digitalWrite(LED, LOW);
+  delay(200);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>LDR – Iluminação automática</summary>
+      <pre><code>#define LDR A0
+#define LED 9
+void setup() { pinMode(LED, OUTPUT); Serial.begin(9600); }
+void loop() {
+  int luz = analogRead(LDR);
+  Serial.println(luz);
+  if (luz &lt; 300) digitalWrite(LED, HIGH);
+  else digitalWrite(LED, LOW);
+  delay(200);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>MQ-2 – Sensor de gás/fumaça</summary>
+      <pre><code>#define MQ2_A A0
+#define BUZZER 8
+void setup() { pinMode(BUZZER, OUTPUT); Serial.begin(9600); }
+void loop() {
+  int gas = analogRead(MQ2_A);
+  Serial.print("Gas: "); Serial.println(gas);
+  digitalWrite(BUZZER, gas &gt; 400 ? HIGH : LOW);
+  delay(500);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>DS18B20 – Temperatura à prova d'água</summary>
+      <pre><code>#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+OneWire oneWire(2);
+DallasTemperature sensors(&amp;oneWire);
+
+void setup() {
+  Serial.begin(9600);
+  sensors.begin();
+}
+void loop() {
+  sensors.requestTemperatures();
+  Serial.print("Temp: ");
+  Serial.println(sensors.getTempCByIndex(0));
+  delay(1000);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>ACS712 – Medição de corrente</summary>
+      <pre><code>#define ACS A0
+void setup() { Serial.begin(9600); }
+void loop() {
+  int leitura = analogRead(ACS);
+  float tensao = (leitura / 1023.0) * 5.0;
+  float corrente = (tensao - 2.5) / 0.185; // modelo 5A
+  Serial.print("Corrente (A): ");
+  Serial.println(corrente, 3);
+  delay(500);
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>MFRC522 – Leitor RFID</summary>
+      <pre><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+MFRC522 rfid(10, 9); // SS, RST
+
+void setup() {
+  Serial.begin(9600); SPI.begin(); rfid.PCD_Init();
+}
+void loop() {
+  if (rfid.PICC_IsNewCardPresent() &amp;&amp; rfid.PICC_ReadCardSerial()) {
+    Serial.print("UID: ");
+    for (byte i=0;i&lt;rfid.uid.size;i++) {
+      Serial.print(rfid.uid.uidByte[i], HEX); Serial.print(" ");
+    }
+    Serial.println();
+    rfid.PICC_HaltA();
+  }
+}</code></pre>
+    </details>
+    <details class="prog-item" >
+      <summary>HX711 + Célula de carga – Balança</summary>
+      <pre><code>#include &lt;HX711.h&gt;
+HX711 balanca;
+void setup() {
+  Serial.begin(9600);
+  balanca.begin(3, 2); // DT, SCK
+  balanca.set_scale(2280.f); // calibração
+  balanca.tare();
+}
+void loop() {
+  float peso = balanca.get_units(10);
+  Serial.print("Peso (g): "); Serial.println(peso);
+  delay(500);
+}</code></pre>
+    </details>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section class="page" id="sobre">
+  <h2 class="section-title">Sobre o Projeto</h2>
+  <div class="arduino-card">
+    <p>Website desenvolvido como atividade prática da unidade curricular <b>Internet das Coisas</b> do Curso Técnico em Desenvolvimento de Sistemas do <b>SENAI Santa Catarina</b>, sob orientação do docente José Ricardo Maçaneiro.</p>
+    <p style="margin-top:10px">O objetivo é apresentar as características, funcionamento, aplicações e formas de integração dos principais sensores utilizados em projetos com Arduino, ESP32, Raspberry Pi e CLPs.</p>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Catálogo IoT – Sensores Industriais · SENAI/SC
+</footer>
+
+</body>
+</html>
