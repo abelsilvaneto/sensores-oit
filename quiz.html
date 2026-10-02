@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz IoT & Sensores Industriais | SENAI</title>
+  <link rel="stylesheet" href="quiz.css">
+  <script src="quiz.js" defer></script>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <nav>
+    <div class="nav-container">
+      <div class="brand">Catálogo <span>IoT</span> – Quiz Interativo</div>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">← Voltar ao Catálogo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= QUIZ CONTAINER ================= -->
+  <main class="quiz-wrapper">
+    <div class="quiz-card" id="quiz-card">
+      
+      <!-- Cabeçalho do Quiz -->
+      <div class="quiz-header">
+        <span class="quiz-badge" id="question-number">Pergunta 1 de 10</span>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Área de Pergunta e Opções -->
+      <div id="quiz-content">
+        <h2 class="question-title" id="question-text">Carregando pergunta...</h2>
+        
+        <div class="options-container" id="options-container">
+          <!-- Opções geradas via JS -->
+        </div>
+
+        <div class="feedback" id="feedback" hidden>
+          <p id="feedback-text"></p>
+        </div>
+
+        <div class="quiz-actions">
+          <button id="btn-next" class="btn-quiz" disabled>Próxima Pergunta →</button>
+        </div>
+      </div>
+
+      <!-- Tela de Resultados (Oculta por padrão) -->
+      <div id="result-screen" style="display: none;" class="result-box">
+        <h2>Quiz Concluído! </h2>
+        <p class="score-text">Você acertou <span id="score-count">0</span> de <span id="total-questions">10</span> perguntas!</p>
+        <div class="score-percentage" id="score-percentage">0%</div>
+        <p class="score-message" id="score-message"></p>
+
+        <div class="result-actions">
+          <button id="btn-restart" class="btn-quiz">Tentar Novamente </button>
+          <a href="index.html" class="btn-quiz btn-secondary">Voltar ao Catálogo </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Catálogo IoT – Sensores Industriais · SENAI/SC
+  </footer>
+
+</body>
+</html>

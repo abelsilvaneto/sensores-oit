@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo IoT – Sensores Industriais | SENAI</title>
-<script src="./script.js"defer></script>
+<script src="./script.js" defer></script>
 <meta name="description" content="Catálogo técnico digital de sensores IoT e industriais para uso com Arduino, ESP32, Raspberry Pi e CLPs.">
 <link rel="stylesheet" href="./styles.css">
 
@@ -21,7 +21,10 @@
       <a class="nav-link" href="#sensores">Sensores</a>
       <a class="nav-link" href="#programacao">Programação</a>
       <a class="nav-link" href="#sobre">Sobre</a>
-      <a class="nav-link" href="https://site-macaneiro.vercel.app/" target="_blank" style="background: #0a6d5c; color: white;">
+      <a class="nav-link" href="quiz.html" style="background: #0a6d5c; color: white;">
+        Quiz IoT 🎯
+      </a>
+      <a class="nav-link" href="https://site-macaneiro.vercel.app/" target="_blank" style="background: #1e2a30; color: white;">
         Robôs ↗
       </a>
     </div>
@@ -51,6 +54,13 @@
       <h3>Sensores + Comunicação + Controle</h3>
       <p>O sensor coleta o dado, a rede de comunicação (I2C, SPI, MQTT, Modbus, LoRa) transporta a informação e o controlador (Arduino, ESP32, CLP, nuvem) toma a decisão. Esse ciclo é o coração da <b>Internet das Coisas (IoT)</b> e da <b>Indústria 4.0</b>.</p>
     </div>
+  </div>
+
+  <!-- Chamada para o Quiz -->
+  <div class="arduino-card" style="margin-top:20px; background: linear-gradient(135deg, #a2c4bc 0%, #b8d4ce 100%); text-align: center;">
+    <h3>Pronto para testar seus conhecimentos?</h3>
+    <p style="margin-bottom: 15px;">Responda ao nosso Quiz de Sensores IoT e veja o quanto você aprendeu sobre automação e eletrônica!</p>
+    <a href="quiz.html" class="btn-detail" style="display: inline-block; padding: 12px 24px; text-decoration: none; font-size: 1rem; background: #0a6d5c; color: white;">Iniciar Quiz Agora 🎯</a>
   </div>
 </section>
 
@@ -101,7 +111,6 @@ void loop() {
   </div>
 
   <div class="grid" id="grid">
-    
     <article class="sensor-card" data-cat="Temperatura e Umidade" data-search="dht11 temperatura e umidade monitoramento de temperatura e umidade">
       <div class="card-img"><img src="images/dht11.jpg" alt="Sensor DHT11" loading="lazy"></div>
       <div class="card-body">
@@ -791,34 +800,6 @@ void loop() {
     <div class="video-card">
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/dptFgBCqmzM" title="Vídeo Demonstrativo 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <h3>Vídeo Demonstrativo 3</h3>
-    </div>
-  </div>
-</section>
-
-<section class="page" id="videos">
-  <h2 class="section-title">Vídeos Demonstrativos</h2>
-  <p class="lead">Assista aos vídeos abaixo sobre o funcionamento e aplicação de sensores em projetos de automação e IoT.</p>
-  
-  <div class="video-grid">
-    <div class="video-card">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/xsrm7AO8uVc" title="Vídeo Demonstrativo 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <h3>Vídeo Demonstrativo 1</h3>
-    </div>
-
-    <div class="video-card">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/q3nLmZelKnI" title="Vídeo Demonstrativo 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-      <h3>Vídeo Demonstrativo 2</h3>
-    </div>
-
-    <div class="video-card">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/yov9PGa2Hv4" title="Vídeo Demonstrativo 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <h3>Vídeo Demonstrativo 3</h3>
     </div>
